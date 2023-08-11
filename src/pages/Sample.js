@@ -1,0 +1,8 @@
+const Sample = () => {
+  return (
+    <div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam dignissimos libero itaque nisi consectetur. In, dolorum. Fuga deleniti architecto quae dolorem obcaecati pariatur ipsum tempora libero sint. Atque perferendis, quis facere est soluta, incidunt temporibus ad hic eaque sapiente earum doloremque, dolorem aliquid nobis consequuntur dolorum dolor animi repellat vel laudantium nemo non perspiciatis omnis? Error eos laboriosam, odio quibusdam debitis iste voluptatibus fuga dicta porro rerum minus illum nihil expedita temporibus voluptates consectetur, enim animi illo eveniet necessitatibus veritatis cumque, perspiciatis rem? Atque autem provident deleniti beatae omnis voluptate porro quasi illo voluptates aut, saepe corporis! Ullam perspiciatis ipsum nisi, commodi, repudiandae cupiditate eveniet perferendis aliquid itaque eos tenetur deleniti sit fugiat rem architecto, voluptatem pariatur! Veritatis labore, omnis blanditiis, vel minus similique, sit dolorem ab totam consequatur dignissimos recusandae reiciendis voluptates quod iste! Veritatis modi voluptates consequatur autem quas nihil minus ratione quidem magnam corporis nemo necessitatibus mollitia dolorum dicta rem, blanditiis nesciunt maiores impedit voluptatibus repellendus hic! Adipisci magnam, voluptas aliquid est natus nemo consequatur eum similique ut praesentium eaque consequuntur beatae enim ad unde qui animi harum rem impedit at dignissimos aspernatur. Voluptates harum culpa, distinctio consequatur laudantium omnis! Sed corporis consectetur repudiandae quas! Corrupti, earum!</p>
+    </div>
+  )
+}
+export default Sample
