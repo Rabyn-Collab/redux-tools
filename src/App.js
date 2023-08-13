@@ -7,8 +7,6 @@ import RootLayOut from "./components/RootLayOut"
 const App = () => {
 
 
-
-
   return (
     <Routes>
       <Route path="/" element={<RootLayOut />} >
