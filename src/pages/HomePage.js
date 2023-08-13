@@ -4,12 +4,15 @@ import Quote from "./Quote"
 
 const HomePage = () => {
 
+  const showDialog = (quote) => {
+    alert(quote);
+  }
 
   return (
     <div>
 
 
-      <Quote data={quoteData} age={90} name='hari' />
+      <Quote show={showDialog} data={quoteData} age={90} name='hari' />
 
 
     </div>
