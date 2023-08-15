@@ -1,20 +1,23 @@
-import { quoteData } from "../dummy/quotes"
-import Quote from "./Quote"
-
+import { useEffect, useState } from "react"
 
 const HomePage = () => {
 
-  const showDialog = (quote) => {
-    alert(quote);
-  }
+
+  const [i, setI] = useState(0);
+  const [i1, setI1] = useState(0);
+
+
+
+
+  useEffect(() => {
+    console.log('hello');
+    setI((p) => p + 1);
+  }, []);
 
   return (
     <div>
-
-
-      <Quote show={showDialog} data={quoteData} age={90} name='hari' />
-
-
+      <button onClick={(e) => setI1((p) => p + 1)}>click</button>
+      <h1>{i}</h1>
     </div>
   )
 }

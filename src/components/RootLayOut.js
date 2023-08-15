@@ -1,12 +1,11 @@
 import { Outlet } from "react-router"
+import Header from "./Header"
 
 const RootLayOut = () => {
   return (
     <>
 
-      <header>
-        <h1>THis is a header</h1>
-      </header>
+      <Header />
       <Outlet />
     </>
   )

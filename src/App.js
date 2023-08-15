@@ -1,8 +1,9 @@
 import { Route, Routes } from "react-router"
 import HomePage from "./pages/HomePage"
-import Sample from "./pages/Sample"
 import NotFound from "./pages/NotFound"
 import RootLayOut from "./components/RootLayOut"
+import About from "./pages/web_info/About"
+import Contact from "./pages/web_info/Contact"
 
 const App = () => {
 
@@ -11,7 +12,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<RootLayOut />} >
         <Route index element={<HomePage />} />
-        <Route path="sample_page" element={<Sample />} />
+        <Route path="about-us" element={<About />} />
+        <Route path="contact-us" element={<Contact />} />
 
       </Route>
 
