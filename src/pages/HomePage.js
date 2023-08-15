@@ -15,7 +15,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-red-600 sm:bg-green-400 md:bg-amber-400">
       <button onClick={(e) => setI1((p) => p + 1)}>click</button>
       <h1>{i}</h1>
     </div>
