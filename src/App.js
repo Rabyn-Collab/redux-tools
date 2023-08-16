@@ -5,6 +5,7 @@ import RootLayOut from "./components/RootLayOut"
 import About from "./pages/web_info/About"
 import Contact from "./pages/web_info/Contact"
 
+// deploy
 const App = () => {
 
 
