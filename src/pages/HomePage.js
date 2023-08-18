@@ -1,23 +1,30 @@
+import axios from "axios";
 import { useEffect, useState } from "react"
 
 const HomePage = () => {
 
 
-  const [i, setI] = useState(0);
-  const [i1, setI1] = useState(0);
 
 
+  const [data, setData] = useState([]);
+  const [load, setLoad] = useState(false);
+  const [err, setErr] = useState(null);
+
+  const getData = async () => {
+    axios.get('');
+  }
 
 
   useEffect(() => {
-    console.log('hello');
-    setI((p) => p + 1);
+
   }, []);
 
+
   return (
-    <div className="bg-red-600 sm:bg-green-400 md:bg-amber-400">
-      <button onClick={(e) => setI1((p) => p + 1)}>click</button>
-      <h1>{i}</h1>
+    <div>
+
+
+
     </div>
   )
 }
