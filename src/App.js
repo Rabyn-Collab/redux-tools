@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound"
 import RootLayOut from "./components/RootLayOut"
 import About from "./pages/web_info/About"
 import Contact from "./pages/web_info/Contact"
+import AddForm from "./components/AddForm"
 
 
 const App = () => {
@@ -15,6 +16,9 @@ const App = () => {
 
         <Route path="about-us" element={<About />} />
         <Route path="contact-us" element={<Contact />} />
+        <Route path="add/user" element={<AddForm />} />
+
+
       </Route>
 
 
