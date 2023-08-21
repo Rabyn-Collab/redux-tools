@@ -4,16 +4,15 @@ import NotFound from "./pages/NotFound"
 import RootLayOut from "./components/RootLayOut"
 import About from "./pages/web_info/About"
 import Contact from "./pages/web_info/Contact"
-import Detail from "./pages/Detail"
+
 
 const App = () => {
-
 
   return (
     <Routes>
       <Route path="/" element={<RootLayOut />} >
         <Route index element={<HomePage />} />
-        <Route path="detail/:id" element={<Detail />} />
+
         <Route path="about-us" element={<About />} />
         <Route path="contact-us" element={<Contact />} />
       </Route>

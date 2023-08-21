@@ -10,6 +10,11 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
-h1 {
-  @apply text-xl
+@layer components {
+
+  .btn {
+    @apply bg-black text-white px-5 py-5 ring-green-800 ring-4
+  }
+
+
 }
