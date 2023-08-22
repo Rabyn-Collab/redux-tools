@@ -5,10 +5,11 @@ import RootLayOut from "./components/RootLayOut"
 import About from "./pages/web_info/About"
 import Contact from "./pages/web_info/Contact"
 import AddForm from "./components/AddForm"
-
+//import * as Hi from './data/data';
 
 const App = () => {
 
+  // console.log(Hi.default);
   return (
     <Routes>
       <Route path="/" element={<RootLayOut />} >
