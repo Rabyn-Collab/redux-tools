@@ -5,11 +5,11 @@ import RootLayOut from "./components/RootLayOut"
 import About from "./pages/web_info/About"
 import Contact from "./pages/web_info/Contact"
 import AddForm from "./components/AddForm"
-//import * as Hi from './data/data';
+import UpdateForm from "./components/UpdateForm"
+
 
 const App = () => {
 
-  // console.log(Hi.default);
   return (
     <Routes>
       <Route path="/" element={<RootLayOut />} >
@@ -18,6 +18,7 @@ const App = () => {
         <Route path="about-us" element={<About />} />
         <Route path="contact-us" element={<Contact />} />
         <Route path="add/user" element={<AddForm />} />
+        <Route path="user/update/:id" element={<UpdateForm />} />
 
 
       </Route>

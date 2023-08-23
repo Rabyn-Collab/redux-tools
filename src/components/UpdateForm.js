@@ -11,15 +11,20 @@ import {
 import { checkData, countryData, genders } from "../data/forms_data";
 import * as Yup from 'yup';
 import { useFormik } from "formik";
-import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
+import { useNavigate, useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../features/userSlice";
 import { nanoid } from "@reduxjs/toolkit";
 
 
-const AddForm = () => {
+const UpdateForm = () => {
   const nav = useNavigate();
+  const { id } = useParams();
+  const { users } = useSelector((store) => store.userInfo);
+  const user = users.find((user) => user.id === id);
+  console.log(user);
   const dispatch = useDispatch();
+
 
   const userSchema = Yup.object().shape({
     username: Yup.string().min(5).max(50).required('required'),
@@ -35,14 +40,14 @@ const AddForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      username: '',
-      email: '',
-      gender: '',
-      habits: [],
-      country: '',
-      msg: '',
-      image: '',
-      id: nanoid()
+      username: user?.username,
+      email: user?.email,
+      gender: user?.gender,
+      habits: user?.habits,
+      country: user?.country,
+      msg: user?.msg,
+      image: user?.image,
+      id: user?.id
     },
     onSubmit: (val) => {
       dispatch(addUser(val));
@@ -84,7 +89,10 @@ const AddForm = () => {
 
             <div className="flex gap-10">
               {genders.map((gen, i) => {
-                return <Radio color={gen.color} name="gender" label={gen.label} value={gen.value}
+                return <Radio color={gen.color}
+
+                  checked={gen.value === formik.values.gender ? true : false}
+                  name="gender" label={gen.label} value={gen.value}
                   onChange={formik.handleChange}
                   key={i} />;
               })}
@@ -104,6 +112,7 @@ const AddForm = () => {
             <div className="flex gap-10">
               {checkData.map((check, i) => {
                 return <Checkbox color={check.color}
+                  checked={formik.values.habits.includes(check.value) ? true : false}
                   onChange={formik.handleChange}
                   name="habits" label={check.label} value={check.value} key={i} />;
               })}
@@ -122,6 +131,7 @@ const AddForm = () => {
 
             <div className="my-3">
               <Select name="country"
+                value={formik.values.country}
                 onChange={(e) => formik.setFieldValue('country', e)}
                 label="Select Your Contry">
                 {countryData.map((country, i) => {
@@ -178,4 +188,4 @@ const AddForm = () => {
   );
 }
 
-export default AddForm
+export default UpdateForm
