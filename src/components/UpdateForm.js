@@ -13,8 +13,7 @@ import * as Yup from 'yup';
 import { useFormik } from "formik";
 import { useNavigate, useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../features/userSlice";
-import { nanoid } from "@reduxjs/toolkit";
+import { updateUser } from "../features/userSlice";
 
 
 const UpdateForm = () => {
@@ -50,7 +49,7 @@ const UpdateForm = () => {
       id: user?.id
     },
     onSubmit: (val) => {
-      dispatch(addUser(val));
+      dispatch(updateUser(val))
       nav(-1);
     },
     validationSchema: userSchema

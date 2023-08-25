@@ -22,13 +22,17 @@ const AddForm = () => {
   const dispatch = useDispatch();
 
   const userSchema = Yup.object().shape({
-    username: Yup.string().min(5).max(50).required('required'),
+    username: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character").required(),
     email: Yup.string().email().required('required'),
     gender: Yup.string().required('required'),
     habits: Yup.array().min(1).required('required'),
     country: Yup.string().required('required'),
     msg: Yup.string().min(10).max(200).required('required'),
-    image: ''
+    image: '',
+    imageFile: Yup.mixed().test('invalid image', (val) => {
+      return ["image/jpeg", "image/jpg", "image/png"].includes(val.type)
+    }).required()
 
   });
 
@@ -42,11 +46,12 @@ const AddForm = () => {
       country: '',
       msg: '',
       image: '',
-      id: nanoid()
+      id: nanoid(),
+      imageFile: null
     },
     onSubmit: (val) => {
-      dispatch(addUser(val));
-      nav(-1);
+      // dispatch(addUser(val));
+      // nav(-1);
     },
     validationSchema: userSchema
   });
@@ -152,15 +157,16 @@ const AddForm = () => {
             <Input
               onChange={(e) => {
                 const file = e.target.files[0];
+                formik.setFieldValue('imageFile', file);
                 const reader = new FileReader();
                 reader.readAsDataURL(file);
                 reader.addEventListener('load', (e) => {
                   formik.setFieldValue('image', e.target.result);
                 })
               }}
-              name="image" type="file" />
+              name="imageFile" type="file" />
             {formik.values.image && <img className="my-2" src={formik.values.image} alt="" />}
-
+            {formik.errors.imageFile && formik.touched.imageFile && <h1 className="text-pink-300">{formik.errors.imageFile}</h1>}
           </div>
 
 

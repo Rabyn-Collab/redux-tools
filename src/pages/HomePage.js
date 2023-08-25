@@ -19,8 +19,9 @@ const HomePage = () => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = (i) => {
-    setOpen(!open);
+
     setIndex(i);
+    setOpen(!open);
 
   }
 
@@ -43,7 +44,7 @@ const HomePage = () => {
 
 
       </div>
-      {!index && <Dialog open={open} handler={handleOpen}>
+      <Dialog open={open} handler={handleOpen}>
         <DialogHeader>Are You Sure?</DialogHeader>
         <DialogBody divider>
           You Want To Remove This User Info
@@ -65,7 +66,7 @@ const HomePage = () => {
           </Button>
         </DialogFooter>
       </Dialog>
-      }
+
     </>
   )
 }
