@@ -27,9 +27,9 @@ const Header = () => {
 
 
       <nav className="space-x-5 flex sm:hidden">
-        <NavLink to='/about-us'>About</NavLink>
-        <NavLink to='/contact-us'>Contact</NavLink>
-        <NavLink to='add/user'>forms</NavLink>
+        <NavLink to='/movie/popular'>Popular</NavLink>
+        <NavLink to='/movie/top_rated'>Top Rated</NavLink>
+        <NavLink to='movie/upcoming'>Upcoming</NavLink>
       </nav>
     </header>
   )

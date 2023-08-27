@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router"
 import HomePage from "./pages/HomePage"
 import NotFound from "./pages/NotFound"
 import RootLayOut from "./components/RootLayOut"
+import MovieByCategory from "./components/MovieByCategory"
+import Detail from "./pages/Detail"
 
 
 const App = () => {
@@ -12,6 +14,8 @@ const App = () => {
     <Routes>
       <Route path="/" element={<RootLayOut />} >
         <Route index element={<HomePage />} />
+        <Route path="movie/:category" element={<MovieByCategory />} />
+        <Route path="movieDetail/:id" element={<Detail />} />
 
       </Route>
 
