@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
+import SearchCompo from "./SearchCompo";
 
 const Header = () => {
 
@@ -26,10 +27,11 @@ const Header = () => {
       {show ? <button onClick={toggle} className="hidden sm:flex"><i class="fa-solid fa-xmark fa-lg"></i> </button> : <button onClick={toggle} className="hidden sm:flex"><i className="fa-solid fa-bars fa-lg"></i></button>}
 
 
-      <nav className="space-x-5 flex sm:hidden">
+      <nav className="space-x-5 flex sm:hidden items-baseline">
         <NavLink to='/movie/popular'>Popular</NavLink>
         <NavLink to='/movie/top_rated'>Top Rated</NavLink>
         <NavLink to='movie/upcoming'>Upcoming</NavLink>
+        <SearchCompo />
       </nav>
     </header>
   )

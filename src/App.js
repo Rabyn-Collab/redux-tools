@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound"
 import RootLayOut from "./components/RootLayOut"
 import MovieByCategory from "./components/MovieByCategory"
 import Detail from "./pages/Detail"
+import Search from "./pages/Search"
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route index element={<HomePage />} />
         <Route path="movie/:category" element={<MovieByCategory />} />
         <Route path="movieDetail/:id" element={<Detail />} />
+        <Route path="movieSearch/:search" element={<Search />} />
 
       </Route>
 

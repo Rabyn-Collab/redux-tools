@@ -10,7 +10,9 @@ module.exports = withMT({
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+
+    },
     screens: {
       '2xl': { 'max': '1536px' },
       'xl': { 'max': '1280px' },

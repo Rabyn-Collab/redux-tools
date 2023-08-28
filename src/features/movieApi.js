@@ -49,6 +49,20 @@ export const movieApi = createApi({
     }),
 
 
+    getSearchMovie: builder.query({
+      query: (query) => ({
+        url: '/search/movie',
+        headers: {
+          'Authorization': accessToken
+        },
+        params: {
+          query
+        }
+      })
+    }),
+
+
+
 
 
   })
@@ -56,5 +70,5 @@ export const movieApi = createApi({
 });
 
 
-export const { useGetMovieByCategoryQuery, useGetMovieDetailQuery, useGetMovieVideoQuery } = movieApi;
+export const { useGetMovieByCategoryQuery, useGetMovieDetailQuery, useGetMovieVideoQuery, useGetSearchMovieQuery } = movieApi;
 
