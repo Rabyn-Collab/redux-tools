@@ -5,6 +5,8 @@ import RootLayOut from "./components/RootLayOut"
 import MovieByCategory from "./components/MovieByCategory"
 import Detail from "./pages/Detail"
 import Search from "./pages/Search"
+import MoviePage from "./pages/MoviePage"
+
 
 
 const App = () => {
@@ -19,9 +21,13 @@ const App = () => {
         <Route path="movieDetail/:id" element={<Detail />} />
         <Route path="movieSearch/:search" element={<Search />} />
 
+
+        <Route path="movie/:category/:page" element={<MoviePage />} />
+
       </Route>
 
       <Route path="*" element={<NotFound />} />
+
     </Routes>
   )
 }
