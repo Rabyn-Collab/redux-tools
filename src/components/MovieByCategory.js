@@ -24,7 +24,9 @@ const MovieByCategory = () => {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-y-11 gap-x-4 px-4 mt-7 items-center">
+
+      <h1 className="text-pink-800">{category ?? 'now_playing'} pages</h1>
+      <div className="grid grid-cols-4 gap-y-11 gap-x-4 px-4 mt-7 items-center mmd:grid-cols-2 msm:grid-cols-1 mlg:grid-cols-3">
 
         {data && data.results.map((movie) => {
           return <div

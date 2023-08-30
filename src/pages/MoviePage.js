@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router"
+import { useLocation, useNavigate, useParams } from "react-router"
 import Loading from "../components/Loading";
 import { useGetMovieByPageQuery } from "../features/movieApi";
 import { imageUrl } from "../features/constants";
@@ -14,12 +14,13 @@ const MoviePage = () => {
   });
 
 
-  // useEffect(() => {
-  //   window.addEventListener("load", () => {
-  //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-  //   });
-  // }, []);
 
+
+  // const { pathname } = useLocation();
+
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]);
 
   if (isLoading) {
     return <Loading />

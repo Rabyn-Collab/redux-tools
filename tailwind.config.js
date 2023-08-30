@@ -14,11 +14,11 @@ module.exports = withMT({
 
     },
     screens: {
-      '2xl': { 'max': '1536px' },
-      'xl': { 'max': '1280px' },
-      'lg': { 'max': '1024px' },
-      'md': { 'max': '768px' },
-      'sm': { 'max': '640px' },
+      'm2xl': { 'max': '1536px' },
+      'mxl': { 'max': '1280px' },
+      'mlg': { 'max': '1024px' },
+      'mmd': { 'max': '768px' },
+      'msm': { 'max': '640px' },
     },
   },
   plugins: [],

@@ -1,4 +1,4 @@
-import { useParams } from "react-router"
+import { Outlet, useParams } from "react-router"
 import { useGetMovieDetailQuery, useGetMovieVideoQuery } from "../features/movieApi";
 import PageDetail from "./page_detail/PageDetail";
 import Loading from "../components/Loading";
@@ -17,6 +17,7 @@ const Detail = () => {
     <>
 
       {data && <PageDetail data={data} />}
+      <Outlet />
 
     </>
   )
