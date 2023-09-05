@@ -5,9 +5,7 @@ const userSchema = mongoose.Schema({
 
   fullname: {
     type: String,
-    required: true,
-    min: [6, 'Too short'],
-    max: [30, 'too long']
+    required: true
   },
   email: {
     type: String,
