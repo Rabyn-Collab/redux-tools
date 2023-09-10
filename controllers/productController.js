@@ -18,6 +18,22 @@ const data = [
 
 
 module.exports.getAllProduct = (req, res) => {
-
   return res.send('kjhkj');
+}
+
+
+
+module.exports.createProduct = (req, res) => {
+  try {
+    return res.status(200).json({
+      status: 'success',
+      message: `successfully registered`
+    });
+
+  } catch (err) {
+    return res.status(400).json({
+      status: 'error',
+      message: `${err}`
+    });
+  }
 }

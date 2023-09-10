@@ -10,6 +10,7 @@ module.exports.userLogin = async (req, res) => {
 
   try {
     const userExist = await User.findOne({ email: email });
+    
 
     if (userExist) {
       const validPass = bcrypt.compareSync(password, userExist.password);
@@ -53,19 +54,29 @@ module.exports.userRegister = async (req, res) => {
   const { email, password, fullname } = req.body;
 
   try {
-    const hashPass = await bcrypt.hash(password, 12);
+
+    const userExist = await User.findOne({ email });
+    if (userExist) {
+      return res.status(400).json({
+        status: 'error',
+        message: `user already exist`
+      });
+    } else {
+      const hashPass = await bcrypt.hash(password, 12);
 
 
+      await User.create({
+        email,
+        password: hashPass,
+        fullname
+      });
+      return res.status(200).json({
+        status: 'success',
+        message: `successfully registered`
+      });
+    }
 
-    await User.create({
-      email,
-      password: hashPass,
-      fullname
-    });
-    return res.status(200).json({
-      status: 'success',
-      message: `successfully registered`
-    });
+
 
 
   } catch (err) {
