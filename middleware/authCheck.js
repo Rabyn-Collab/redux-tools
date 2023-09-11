@@ -12,13 +12,10 @@ module.exports.adminCheck = (req, res, next) => {
     if (token) {
       const decode = jwt.decode(token, 'jsonToken');
 
-      console.log(decode);
       switch (decode?.isAdmin) {
-
 
         case true:
           return next();
-
 
 
         default:
