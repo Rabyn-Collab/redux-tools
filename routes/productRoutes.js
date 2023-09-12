@@ -6,9 +6,18 @@ const checkFile = require('../middleware/filecheck');
 
 router.get('/', productController.getAllProduct);
 
+router.get('/product/:id', productController.getProductById);
+
 
 router.post('/api/create-product', checkUser.adminCheck,
   checkFile.fileCheck, productController.createProduct);
+
+router.post('/api/create-product', checkUser.adminCheck,
+  checkFile.fileCheck, productController.createProduct);
+
+
+router.patch('/api/update-product/:id', checkUser.adminCheck,
+  checkFile.updateCheck, productController.updateProduct);
 
 
 
