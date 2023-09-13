@@ -47,9 +47,10 @@ module.exports.fileCheck = (req, res, next) => {
 
 
 
+
 module.exports.updateCheck = (req, res, next) => {
 
-  if (req.files?.product_image && req.body?.oldImagePath) {
+  if (req.files?.product_image && req.body?.imagePath) {
 
 
 
@@ -61,7 +62,7 @@ module.exports.updateCheck = (req, res, next) => {
 
         }
 
-        fs.unlink(`.${req.body.oldImagePath}`, (err) => {
+        fs.unlink(`.${req.body.imagePath}`, (err) => {
 
         })
 

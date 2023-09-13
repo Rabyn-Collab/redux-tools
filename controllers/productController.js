@@ -1,5 +1,5 @@
 const Product = require('../model/Product');
-
+const fs = require('fs');
 
 
 
@@ -80,7 +80,7 @@ module.exports.updateProduct = async (req, res) => {
     brand,
     category,
     countInStock,
-    oldImagePath
+
 
   } = req.body;
   try {
@@ -112,6 +112,37 @@ module.exports.updateProduct = async (req, res) => {
     return res.status(200).json({
       status: 'success',
       message: `successfully updated`
+    });
+
+  } catch (err) {
+    return res.status(400).json({
+      status: 'error',
+      message: `${err}`
+    });
+  }
+}
+
+
+
+
+
+
+module.exports.removeProduct = async (req, res) => {
+  const {
+    product_image,
+
+  } = req.body;
+  try {
+
+    await Product.findByIdAndDelete({ _id: req.params.id });
+
+    fs.unlink(`.${product_image}`, (err) => {
+
+    })
+
+    return res.status(200).json({
+      status: 'success',
+      message: `successfully created`
     });
 
   } catch (err) {
