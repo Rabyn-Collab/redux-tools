@@ -3,6 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const productRoutes = require('./routes/productRoutes');
 const authRoutes = require('./routes/authRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
@@ -30,6 +31,7 @@ app.use(fileUpload({
 
 app.use(productRoutes);
 app.use(authRoutes);
+app.use(orderRoutes);
 
 app.use((req, res) => {
   return res.status(404).json({

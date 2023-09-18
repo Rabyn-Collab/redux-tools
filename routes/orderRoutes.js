@@ -8,7 +8,10 @@ router.get('/api/order/all', checkUser.adminCheck, orderController.getAllOrder);
 router.get('/api/order/user', checkUser.userCheck, orderController.getOrderByUser);
 
 
-router.post('/api/create-order', checkUser.userCheck, productController.createProduct);
+router.get('/api/orderById/:id', checkUser.userCheck, orderController.getOrderById);
+
+
+router.post('/api/create-order', checkUser.userCheck, orderController.addOrder);
 
 
 

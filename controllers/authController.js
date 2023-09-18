@@ -22,8 +22,10 @@ module.exports.userLogin = async (req, res) => {
         return res.status(200).json({
           token,
           email,
+          fullname: userExist.fullname,
           shippingAddress: userExist.shippingAddress,
-          isAdmin: userExist.isAdmin
+          isAdmin: userExist.isAdmin,
+
         });
 
       } else {
