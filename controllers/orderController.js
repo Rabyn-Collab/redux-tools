@@ -1,5 +1,5 @@
 const Order = require('../model/Order');
-
+const mongoose = require('mongoose');
 
 module.exports.getAllOrder = async (req, res) => {
   try {
@@ -32,9 +32,11 @@ module.exports.getOrderById = async (req, res) => {
 
 module.exports.getOrderByUser = async (req, res) => {
   try {
-    const orders = await Order.findById({ user: req.userId });
+
+    const orders = await Order.find({ user: req.userId });
     return res.status(200).json(orders);
   } catch (err) {
+    console.log(err);
     return res.status(400).json({
       status: 'error',
       message: `${err}`
