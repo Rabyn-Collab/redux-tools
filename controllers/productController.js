@@ -127,6 +127,75 @@ module.exports.updateProduct = async (req, res) => {
 
 
 
+
+
+
+
+module.exports.addReview = async (req, res) => {
+  const user = req.userId;
+  const id = req.params.id;
+  const {
+    username,
+    comment,
+    rating,
+  } = req.body;
+  try {
+    const isExist = await Product.findById({ _id: id });
+
+    if (isExist) {
+      const isThere = await isExist.reviews.find((rev) => rev.user.toString() === user);
+      if (isThere) {
+        return res.status(400).json({
+          status: 'error',
+          message: `you have already reviewed it`
+        });
+      } else {
+        isExist.reviews.push({ username, comment, rating: Number(rating), user });
+        const total = isExist.reviews.reduce((a, b) => a + b.rating, 0);
+
+        isExist.rating = total / isExist.reviews.length;
+
+        isExist.numReviews = isExist.reviews.length;
+
+        await isExist.save();
+        return res.status(201).json({
+          status: 'success',
+          message: `review added successfully`
+        });
+
+      }
+
+
+    } else {
+      return res.status(404).json({
+        status: 'error',
+        message: `product doesn't exist`
+      });
+    }
+
+  } catch (err) {
+    return res.status(400).json({
+      status: 'error',
+      message: `${err}`
+    });
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports.removeProduct = async (req, res) => {
   const {
     product_image,
